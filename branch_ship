@@ -1,0 +1,8 @@
+#!/bin/sh -x
+# git name-rev is fail
+CURRENT=`git branch | grep '\*' | awk '{print $2}'`
+git checkout $1
+git merge ${CURRENT}
+git push origin $1
+git checkout ${CURRENT}
+
